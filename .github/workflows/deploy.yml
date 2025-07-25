@@ -1,0 +1,22 @@
+name: Deploy Portfolio
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Validate HTML (basic)
+      uses: Cyb10101/html-validator-action@v1
+      with:
+        directory: .
+
+    - name: Deploy using GitHub Pages (default)
+      run: echo "Deployment handled by GitHub Pages (via Settings)"
